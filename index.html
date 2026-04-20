@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anish | Hire-Ready Portfolio</title>
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --bg-2: #0f1622;
+      --panel: rgba(15, 22, 34, 0.82);
+      --panel-2: rgba(19, 28, 43, 0.92);
+      --panel-3: rgba(28, 39, 59, 0.82);
+      --text: #eef3ff;
+      --muted: #97a7c3;
+      --line: rgba(255, 255, 255, 0.09);
+      --accent: #78ffd7;
+      --accent-2: #7d8bff;
+      --accent-3: #ffb06f;
+      --danger: #ff6a88;
+      --shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(125, 139, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 86% 10%, rgba(120, 255, 215, 0.13), transparent 22%),
+        radial-gradient(circle at 80% 78%, rgba(255, 176, 111, 0.14), transparent 18%),
+        linear-gradient(180deg, #090d13 0%, #0b1118 45%, #080c12 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.28;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -120px;
+      left: -140px;
+      background: rgba(125, 139, 255, 0.34);
+    }
+
+    body::after {
+      right: -120px;
+      bottom: 8%;
+      background: rgba(120, 255, 215, 0.18);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(18, 27, 40, 0.9), rgba(11, 17, 27, 0.94));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 40;
+      padding-top: 14px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 999px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--accent), #c3ffef);
+      color: #061019;
+      box-shadow: 0 16px 36px rgba(120, 255, 215, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .hero {
+      padding: 34px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.72fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .proof-card,
+    .project-card,
+    .testimonial-card,
+    .contact-card,
+    .footer,
+    .chat-panel {
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-main {
+      padding: 34px;
+      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 139, 255, 0.22), transparent 64%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      font-size: 0.88rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(120, 255, 215, 0.08);
+    }
+
+    .headline {
+      max-width: 820px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .headline h1 {
+      margin: 20px 0 18px;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: clamp(3.1rem, 7.8vw, 6.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .headline h1 .accent {
+      display: block;
+      background: linear-gradient(135deg, #eff4ff, #7d8bff 45%, #78ffd7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .headline p {
+      margin: 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-proof {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proof-card {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    .proof-card strong {
+      display: block;
+      font-size: 1.68rem;
+      margin-bottom: 6px;
+    }
+
+    .proof-card span {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .value-strip {
+      margin-top: 26px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(120, 255, 215, 0.08), rgba(125, 139, 255, 0.08));
+      border: 1px solid rgba(120, 255, 215, 0.16);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .value-item {
+      color: #dbe6fb;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .value-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .sidebar-card {
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(21, 30, 45, 0.96), rgba(12, 18, 28, 0.96));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-card small,
+    .section-card small,
+    .testimonial-card small,
+    .contact-card small,
+    .chat-panel small {
+      display: block;
+      color: #7f90ae;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .sidebar-card h2,
+    .sidebar-card h3,
+    .section-header h2,
+    .contact-card h3 {
+      margin: 10px 0 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .sidebar-card h2 {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .sidebar-card p,
+    .section-header p,
+    .reason-card p,
+    .project-body p,
+    .testimonial-card p,
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+    }
+
+    .fact span:last-child {
+      color: #dce6fb;
+      text-align: right;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .mini-tag,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: #dae4fb;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 3vw, 3rem);
+    }
+
+    .section-header p {
+      max-width: 560px;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .reason-card {
+      padding: 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(24, 35, 52, 0.88), rgba(13, 19, 29, 0.94));
+      border: 1px solid var(--line);
+    }
+
+    .reason-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: #061019;
+      background: linear-gradient(135deg, var(--accent), #c7fff1);
+    }
+
+    .reason-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill-pill {
+      padding: 16px 14px;
+      text-align: center;
+      border-radius: 18px;
+      font-weight: 800;
+      color: #dbe6fc;
+      background: linear-gradient(180deg, rgba(27, 39, 58, 0.92), rgba(17, 24, 36, 0.92));
+      border: 1px solid var(--line);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 470px;
+      background: linear-gradient(180deg, rgba(19, 28, 43, 0.97), rgba(11, 16, 24, 0.98));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-6px);
+      border-color: rgba(125, 139, 255, 0.26);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-cover {
+      min-height: 196px;
+      padding: 24px;
+      display: flex;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 55%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 22%);
+    }
+
+    .project-cover strong {
+      position: relative;
+      z-index: 1;
+      font-size: 1.8rem;
+      letter-spacing: -0.05em;
+    }
+
+    .cover-1 {
+      background: linear-gradient(135deg, #182438, #7d8bff);
+    }
+
+    .cover-2 {
+      background: linear-gradient(135deg, #12353b, #78ffd7);
+      color: #051017;
+    }
+
+    .cover-3 {
+      background: linear-gradient(135deg, #42263c, #ffb06f);
+      color: #1d0e03;
+    }
+
+    .project-body {
+      padding: 22px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-highlights {
+      display: grid;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .project-point {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: #d4dff8;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      padding: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(125, 139, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, rgba(18, 26, 40, 0.96), rgba(10, 15, 23, 0.97));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-card blockquote {
+      margin: 18px 0 20px;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+      line-height: 1.28;
+      letter-spacing: -0.04em;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .bullet-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      color: #d9e3fa;
+      line-height: 1.65;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(19, 28, 43, 0.95), rgba(10, 15, 24, 0.97));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-link span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .footer {
+      margin: 24px auto 40px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chat-shell {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 60;
+      width: min(390px, calc(100vw - 20px));
+    }
+
+    .chat-toggle {
+      margin-left: auto;
+      width: 66px;
+      height: 66px;
+      border: none;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 1.08rem;
+      cursor: pointer;
+      color: #041119;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+    }
+
+    .chat-panel {
+      margin-bottom: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16, 23, 34, 0.98), rgba(8, 12, 19, 0.99));
+      box-shadow: var(--shadow);
+      transform-origin: bottom right;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    }
+
+    .chat-panel.hidden {
+      opacity: 0;
+      transform: scale(0.92);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .chat-head {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chat-head strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+
+    .chat-status {
+      color: #9ef7df;
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .chat-messages {
+      height: min(52vh, 430px);
+      overflow-y: auto;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .message {
+      max-width: 90%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      line-height: 1.68;
+      font-size: 0.94rem;
+      white-space: pre-wrap;
+    }
+
+    .message.bot {
+      color: #dce6fc;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    .message.user {
+      margin-left: auto;
+      color: #f4fcff;
+      background: linear-gradient(135deg, rgba(125, 139, 255, 0.24), rgba(120, 255, 215, 0.16));
+      border: 1px solid rgba(125, 139, 255, 0.18);
+    }
+
+    .chat-suggestions {
+      padding: 0 16px 12px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+    }
+
+    .chat-suggestion {
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .chat-form {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .chat-form input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      outline: none;
+    }
+
+    .chat-form input::placeholder {
+      color: #7e90ae;
+    }
+
+    .chat-form button {
+      min-width: 92px;
+      border: none;
+      border-radius: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #051018;
+      background: linear-gradient(135deg, var(--accent), #c1fff0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .proof-row,
+      .contact-grid,
+      .projects-grid,
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .value-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-main {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .nav-inner {
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-main,
+      .section-card,
+      .sidebar-card,
+      .contact-card,
+      .testimonial-card,
+      .footer {
+        padding: 20px;
+      }
+
+      .hero-proof,
+      .skills-grid,
+      .value-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .headline h1 {
+        font-size: clamp(2.7rem, 14vw, 4.6rem);
+      }
+
+      .chat-shell {
+        right: 10px;
+        bottom: 10px;
+        width: min(390px, calc(100vw - 12px));
+      }
+
+      .chat-messages {
+        height: min(50vh, 360px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav container">
+      <div class="nav-inner glass">
+        <a class="brand" href="#top">Anish Portfolio</a>
+        <div class="nav-links">
+          <a href="#why-hire">Why Hire</a>
+          <a href="#projects">Projects</a>
+          <a href="#proof">Proof</a>
+          <a href="#contact">Contact</a>
+          <a class="button button-secondary" href="#assistant">Recruiter AI</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero container" id="top">
+      <div class="hero-grid">
+        <section class="hero-main glass reveal">
+          <div class="headline">
+            <span class="eyebrow">Built to win the first 10 seconds of recruiter attention</span>
+            <h1>
+              A developer who can
+              <span class="accent">write clean code, learn fast, and present work clearly.</span>
+            </h1>
+            <p>
+              This portfolio is structured around what hiring teams scan first: clear role fit, visible technical range,
+              proof-oriented projects, strong communication, and a polished interface that signals care and competence.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">Shortlist Candidate</a>
+              <a class="button button-secondary" href="#projects">Review Work</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-proof">
+              <div class="proof-card">
+                <strong>Java</strong>
+                <span>Strong grounding in OOP, console applications, logic, and clean structure.</span>
+              </div>
+              <div class="proof-card">
+                <strong>Frontend</strong>
+                <span>Responsive layouts, visual hierarchy, and modern UI execution in plain HTML, CSS, and JS.</span>
+              </div>
+              <div class="proof-card">
+                <strong>Communication</strong>
+                <span>Explains decisions clearly, presents work well, and builds interfaces that feel intentional.</span>
+              </div>
+            </div>
+
+            <div class="value-strip">
+              <div class="value-item">
+                <strong>Fast learner</strong>
+                Can absorb feedback quickly and improve output without high hand-holding.
+              </div>
+              <div class="value-item">
+                <strong>Reliable execution</strong>
+                Focuses on shipping complete work, not half-finished ideas.
+              </div>
+              <div class="value-item">
+                <strong>Readable code</strong>
+                Prioritizes clarity, maintainability, and beginner-friendly structure.
+              </div>
+              <div class="value-item">
+                <strong>Strong presentation</strong>
+                Understands that quality is both technical and visual.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="hero-side reveal">
+          <div class="sidebar-card">
+            <small>Candidate Snapshot</small>
+            <h2>Anish</h2>
+            <p>
+              Student developer with a strong fundamentals-first approach, growing frontend polish, and a clear bias toward shipping work that feels complete.
+            </p>
+            <div class="quick-facts">
+              <div class="fact">
+                <span>Target Roles</span>
+                <span>Internships, fresher developer roles</span>
+              </div>
+              <div class="fact">
+                <span>Best Fit</span>
+                <span>Java, web, entry-level product teams</span>
+              </div>
+              <div class="fact">
+                <span>Work Style</span>
+                <span>Structured, coachable, detail-aware</span>
+              </div>
+              <div class="fact">
+                <span>Hiring Signal</span>
+                <span>Strong potential with visible execution quality</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <small>Immediate Reasons To Keep Scrolling</small>
+            <h3>Not just another skill list.</h3>
+            <p>
+              The rest of this page is built to answer the exact questions a recruiter or hiring manager would ask:
+              Why hire him? What can he build? How does he think? Will he grow fast inside a team?
+            </p>
+            <div class="mini-tags">
+              <span class="mini-tag">Clean code</span>
+              <span class="mini-tag">Responsive UI</span>
+              <span class="mini-tag">OOP mindset</span>
+              <span class="mini-tag">Fast improvement</span>
+              <span class="mini-tag">Project clarity</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container reveal" id="why-hire">
+        <div class="section-card glass">
+          <div class="section-header">
+            <div>
+              <small>Why Hire Him</small>
+              <h2>The strongest hiring case in one screen.</h2>
+            </div>
+            <p>
+              Current portfolio advice consistently points to the same first-impression signals: clear headline, relevant stack, visible proof, and strong structure.
+              This section translates those signals into a concise hiring argument.
+            </p>
+          </div>
+
+          <div class="reasons-grid">
+            <article class="reason-card">
+              <div class="reason-number">01</div>
+              <h3>Solid fundamentals</h3>
+              <p>He is not skipping the basics. Java, OOP, logic, and clean structure are visible in the work instead of just being listed.</p>
+            </article>
+            <article class="reason-card">
+              <div class="reason-number">02</div>
+              <h3>Strong polish for his stage</h3>
+              <p>Most early-career candidates either code well or present well. This portfolio is built to show both.</p>
+            </article>
+            <article class="reason-card">
+              <div class="reason-number">03</div>
+              <h3>Communicates clearly</h3>
+              <p>Recruiters and engineering teams both benefit from candidates who can explain what they built and why it matters.</p>
+            </article>
+            <article class="reason-card">
+              <div class="reason-number">04</div>
+              <h3>Coachability and growth</h3>
+              <p>He appears structured, disciplined, and likely to improve fast under feedback, which is a high-value trait in fresher hiring.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal">
+        <div class="section-card glass">
+          <div class="section-header">
+            <div>
+              <small>Skills</small>
+              <h2>Relevant stack shown cleanly and fast.</h2>
+            </div>
+            <p>
+              A recruiter should not have to search for fit. The stack is surfaced immediately, in a way that is quick to scan on desktop and mobile.
+            </p>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-pill">Java</div>
+            <div class="skill-pill">OOP</div>
+            <div class="skill-pill">HTML</div>
+            <div class="skill-pill">CSS</div>
+            <div class="skill-pill">JavaScript</div>
+            <div class="skill-pill">Responsive UI</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="projects">
+        <div class="section-card glass">
+          <div class="section-header">
+            <div>
+              <small>Projects</small>
+              <h2>Projects framed as evidence, not filler.</h2>
+            </div>
+            <p>
+              The strongest portfolios do not just show names of projects. They show problem, implementation style, and what the project proves about the developer.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-cover cover-1">
+                <strong>Thread Counter</strong>
+              </div>
+              <div class="project-body">
+                <div class="tag">Java / Threads / Input Handling</div>
+                <p>
+                  A console-based Java project that creates a named thread and prints a number range with controlled delay.
+                  It demonstrates comfort with custom thread classes, constructors, runtime input, and execution flow.
+                </p>
+                <div class="project-highlights">
+                  <div class="project-point">Shows practical Java fundamentals instead of passive theory.</div>
+                  <div class="project-point">Readable enough for evaluation in a classroom or interview setting.</div>
+                  <div class="project-point">Signals willingness to work with concurrency concepts early.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-cover cover-2">
+                <strong>Recruiter Portfolio</strong>
+              </div>
+              <div class="project-body">
+                <div class="tag">HTML / CSS / JS / Responsive Design</div>
+                <p>
+                  A recruiter-first personal portfolio optimized for fast scanning, clear value framing, mobile responsiveness,
+                  and in-page interaction through a smart assistant widget.
+                </p>
+                <div class="project-highlights">
+                  <div class="project-point">Shows UI taste, layout discipline, and ability to structure a narrative.</div>
+                  <div class="project-point">Demonstrates responsiveness instead of assuming desktop-only review.</div>
+                  <div class="project-point">Adds a functional assistant layer rather than static content alone.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-cover cover-3">
+                <strong>Study Planner Concept</strong>
+              </div>
+              <div class="project-body">
+                <div class="tag">JavaScript / UX Thinking / Product Sense</div>
+                <p>
+                  A lightweight learning planner concept focused on visibility of goals, progress, and academic priorities.
+                  The design direction emphasizes simplicity and low cognitive load.
+                </p>
+                <div class="project-highlights">
+                  <div class="project-point">Shows product thinking beyond coding syntax.</div>
+                  <div class="project-point">Balances usefulness, clarity, and interface restraint.</div>
+                  <div class="project-point">Indicates ability to think in terms of user flow, not just screens.</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="proof">
+        <div class="proof-row">
+          <div class="testimonial-card">
+            <small>Recruiter Lens</small>
+            <blockquote>
+              “If I had 10 seconds to evaluate this candidate, I would remember three things:
+              clean thinking, visible effort, and unusually strong presentation for an early-career profile.”
+            </blockquote>
+            <p>
+              This is not a fake testimonial. It is the exact impression the page is engineered to create: competence, seriousness, and potential.
+            </p>
+          </div>
+
+          <div class="testimonial-card">
+            <small>What This Portfolio Proves</small>
+            <div class="bullet-list">
+              <div class="bullet-item">He can move beyond tutorial aesthetics and build a sharper visual identity.</div>
+              <div class="bullet-item">He understands that recruiters scan first and read second, so information hierarchy matters.</div>
+              <div class="bullet-item">He can combine technical work with persuasive presentation, which is valuable in modern teams.</div>
+              <div class="bullet-item">He is likely to benefit strongly from mentorship because the raw discipline is already visible.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" id="contact">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <small>Contact</small>
+            <h3>Everything a recruiter needs to take the next step.</h3>
+            <p>
+              Replace these placeholders with your real email, GitHub, LinkedIn, city, resume link, and any deployment links.
+              The structure is already optimized for fast action.
+            </p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:anish@example.com">
+                <span>Email</span>
+                <span>anish@example.com</span>
+              </a>
+              <a class="contact-link" href="https://github.com/" target="_blank" rel="noreferrer">
+                <span>GitHub</span>
+                <span>github.com/your-profile</span>
+              </a>
+              <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                <span>LinkedIn</span>
+                <span>linkedin.com/in/your-profile</span>
+              </a>
+              <a class="contact-link" href="#">
+                <span>Resume</span>
+                <span>Available on request</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <small>Best Uses</small>
+            <h3>Where this candidate looks strongest right now.</h3>
+            <div class="bullet-list">
+              <div class="bullet-item">Entry-level software developer roles where fundamentals and coachability matter.</div>
+              <div class="bullet-item">Internships where strong communication and learning speed are valuable.</div>
+              <div class="bullet-item">Teams that appreciate clean frontend presentation even in junior candidates.</div>
+              <div class="bullet-item">Environments where a disciplined fresher can grow quickly under guidance.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer glass container reveal">
+      <p>Single-file recruiter-first portfolio for Anish. Designed around scan speed, credibility, and responsive presentation.</p>
+      <a class="button button-primary" href="#top">Back to Top</a>
+    </footer>
+
+    <div class="chat-shell" id="assistant">
+      <div class="chat-panel" id="chatPanel">
+        <div class="chat-head">
+          <div>
+            <small>Recruiter AI</small>
+            <strong>Anish Hiring Assistant</strong>
+          </div>
+          <span class="chat-status">Dynamic replies enabled</span>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            Ask anything about Anish: "Why should I hire him?", "What are his strengths?", "What can he build?", or "Is he a good fit for an internship?"
+          </div>
+        </div>
+
+        <div class="chat-suggestions">
+          <button class="chat-suggestion" type="button" data-prompt="Why should I hire him?">Why hire him?</button>
+          <button class="chat-suggestion" type="button" data-prompt="What are his strengths?">Strengths</button>
+          <button class="chat-suggestion" type="button" data-prompt="Is he a good fit for an internship?">Internship fit</button>
+          <button class="chat-suggestion" type="button" data-prompt="What projects should I look at first?">Best projects</button>
+        </div>
+
+        <form class="chat-form" id="chatForm">
+          <input id="chatInput" type="text" placeholder="Ask any hiring question..." autocomplete="off">
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+      <button class="chat-toggle" id="chatToggle" type="button" aria-label="Toggle recruiter assistant">AI</button>
+    </div>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const candidate = {
+      name: "Anish",
+      role: "student developer targeting internships and fresher software roles",
+      strengths: [
+        "solid Java and OOP fundamentals",
+        "clean and readable coding style",
+        "responsive frontend presentation",
+        "clear communication of technical ideas",
+        "strong coachability and growth potential"
+      ],
+      reasonsToHire: [
+        "he combines technical basics with noticeably strong presentation",
+        "he appears disciplined and likely to improve quickly under feedback",
+        "he can already structure work in a recruiter-friendly, team-friendly way",
+        "he does not hide behind buzzwords; the portfolio is framed as proof"
+      ],
+      workStyle: [
+        "structured",
+        "detail-aware",
+        "practical",
+        "easy to evaluate",
+        "focused on complete output"
+      ],
+      projects: [
+        {
+          name: "Thread Counter",
+          summary: "a Java multithreading practice project showing thread creation, naming, input handling, and execution flow"
+        },
+        {
+          name: "Recruiter Portfolio",
+          summary: "a polished responsive portfolio focused on scan speed, value framing, and interactive recruiter support"
+        },
+        {
+          name: "Study Planner Concept",
+          summary: "a small product-style interface concept that shows UI thinking and user-focused structure"
+        }
+      ],
+      fit: {
+        internship: "He is a strong internship candidate because he already shows fundamentals, polish, and the ability to absorb structure quickly.",
+        fresher: "He fits fresher developer roles where a team wants someone coachable, consistent, and capable of growing into ownership.",
+        frontend: "He is especially promising for frontend-adjacent roles because he pays attention to layout, responsiveness, and presentation.",
+        java: "He is a credible early-career Java candidate because the work shows actual understanding of classes, threads, and input-driven execution."
+      },
+      contact: "The portfolio currently uses placeholders for email, GitHub, LinkedIn, and resume. Swap those with real links before sharing externally."
+    };
+
+    const knowledge = [
+      {
+        key: "hire",
+        words: ["hire", "why", "recruit", "select", "choose", "pick", "shortlist"],
+        reply: () => "You should hire " + candidate.name + " because " + candidate.reasonsToHire.slice(0, 3).join(", ") + ". For an early-career profile, that combination is unusually strong."
+      },
+      {
+        key: "strengths",
+        words: ["strength", "good", "best", "advantage", "quality", "qualities", "strong"],
+        reply: () => candidate.name + "'s strongest signals are " + candidate.strengths.slice(0, 4).join(", ") + ". The portfolio is designed to make those strengths visible quickly."
+      },
+      {
+        key: "projects",
+        words: ["project", "build", "built", "work", "portfolio", "made", "create", "created"],
+        reply: () => "The best projects to review first are " + candidate.projects.map((item) => item.name).join(", ") + ". Together they show Java fundamentals, UI polish, and product thinking."
+      },
+      {
+        key: "internship",
+        words: ["intern", "internship", "student", "fresher", "junior", "entry"],
+        reply: () => candidate.fit.internship + " " + candidate.fit.fresher
+      },
+      {
+        key: "frontend",
+        words: ["frontend", "ui", "ux", "responsive", "design", "css", "html"],
+        reply: () => candidate.fit.frontend + " This page itself is part of that evidence."
+      },
+      {
+        key: "java",
+        words: ["java", "oop", "thread", "backend", "logic", "programming"],
+        reply: () => candidate.fit.java + " The Thread Counter project is the clearest direct signal."
+      },
+      {
+        key: "contact",
+        words: ["contact", "email", "github", "linkedin", "resume", "reach"],
+        reply: () => candidate.contact
+      },
+      {
+        key: "personality",
+        words: ["workstyle", "style", "personality", "team", "attitude", "culture", "behavior"],
+        reply: () => candidate.name + " comes across as " + candidate.workStyle.join(", ") + ". That matters because teams hire people they can trust to work clearly and improve steadily."
+      }
+    ];
+
+    const chatPanel = document.getElementById("chatPanel");
+    const chatToggle = document.getElementById("chatToggle");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+    const suggestionButtons = document.querySelectorAll(".chat-suggestion");
+
+    function appendMessage(text, type) {
+      const node = document.createElement("div");
+      node.className = "message " + type;
+      node.textContent = text;
+      chatMessages.appendChild(node);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function tokenize(text) {
+      return text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean);
+    }
+
+    function topProjectSummary() {
+      return candidate.projects.map((item) => item.name + " is " + item.summary).join("; ") + ".";
+    }
+
+    function genericDynamicReply(question) {
+      const q = question.toLowerCase();
+      const tokens = tokenize(question);
+
+      if (q.includes("why should i hire") || q.includes("why hire")) {
+        return "You should hire " + candidate.name + " because he brings strong fundamentals, visible care for quality, and the kind of coachable growth potential that teams want in an early-career developer. He already shows both technical discipline and presentation strength, which means he is likely to represent work well inside a real team.";
+      }
+
+      if (q.includes("tell me about") || q.includes("who is")) {
+        return candidate.name + " is a " + candidate.role + " with strengths in " + candidate.strengths.slice(0, 3).join(", ") + ". He presents as focused, serious, and capable of growing quickly.";
+      }
+
+      if (q.includes("fit") || q.includes("suitable")) {
+        return candidate.fit.internship + " " + candidate.fit.frontend + " " + candidate.fit.java;
+      }
+
+      if (q.includes("project")) {
+        return topProjectSummary();
+      }
+
+      if (q.includes("strength") || q.includes("good at") || q.includes("best at")) {
+        return candidate.name + " is strongest in " + candidate.strengths.join(", ") + ". The portfolio also suggests strong communication and visual discipline.";
+      }
+
+      if (q.includes("weak") || q.includes("improve")) {
+        return "Like most early-career candidates, the next step is depth through more real-world projects and live links. The upside is that the fundamentals, responsiveness, and presentation quality are already ahead of many peers.";
+      }
+
+      if (q.includes("team") || q.includes("culture")) {
+        return candidate.name + " appears best suited to teams that value clarity, mentorship, and steady improvement. His work style reads as structured, practical, and easy to guide.";
+      }
+
+      if (q.includes("frontend") || q.includes("design") || q.includes("responsive")) {
+        return candidate.fit.frontend + " The mobile behavior, hierarchy, and visual polish in this portfolio are part of that proof.";
+      }
+
+      if (q.includes("java") || q.includes("backend") || q.includes("oop")) {
+        return candidate.fit.java + " He is still early in the journey, but the foundations appear real rather than decorative.";
+      }
+
+      if (q.includes("salary") || q.includes("ctc")) {
+        return "This portfolio is better suited to evaluating fit and potential than compensation. For an early-career candidate, the strongest next step is a technical screening plus discussion around role expectations.";
+      }
+
+      if (q.includes("contact") || q.includes("email") || q.includes("resume") || q.includes("github") || q.includes("linkedin")) {
+        return candidate.contact;
+      }
+
+      const scores = knowledge.map((item) => {
+        let score = 0;
+        item.words.forEach((word) => {
+          if (tokens.includes(word)) {
+            score += 1;
+          }
+        });
+        return { item, score };
+      }).sort((a, b) => b.score - a.score);
+
+      if (scores[0].score > 0) {
+        return scores[0].item.reply();
+      }
+
+      return "Based on this portfolio, the strongest summary is that " + candidate.name + " is a " + candidate.role + " who combines " + candidate.strengths.slice(0, 3).join(", ") + ". If you want, ask about hiring fit, projects, strengths, internship potential, Java, frontend work, or contact details.";
+    }
+
+    function handlePrompt(text) {
+      if (!text.trim()) {
+        return;
+      }
+
+      appendMessage(text, "user");
+
+      window.setTimeout(() => {
+        appendMessage(genericDynamicReply(text), "bot");
+      }, 320);
+    }
+
+    chatToggle.addEventListener("click", () => {
+      chatPanel.classList.toggle("hidden");
+    });
+
+    chatForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) {
+        return;
+      }
+      handlePrompt(text);
+      chatInput.value = "";
+      chatInput.focus();
+    });
+
+    suggestionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        handlePrompt(button.dataset.prompt || "");
+      });
+    });
+  </script>
+</body>
+</html>
